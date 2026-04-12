@@ -3,6 +3,7 @@
 ## Prerequisites
 - PostgreSQL installed and running
 - Node.js 18+ installed
+- Python 3.10+ installed (for the ISL prediction service)
 
 ## Setup Steps
 
@@ -36,7 +37,24 @@ npm run dev
 
 Server will start at: `http://localhost:5000`
 
-### 5. Test It Works
+### 5. Start the Python Prediction Server
+In a **second terminal** (keep the backend terminal running):
+```bash
+cd backend
+venv\Scripts\python.exe predict_server.py
+```
+
+The prediction API will start at: `http://localhost:5001`
+
+> **First launch takes ~30 seconds** while TensorFlow loads the Keras model.
+
+Verify it's running:
+```bash
+curl http://localhost:5001/health
+# → {"status":"ok","model_loaded":true}
+```
+
+### 6. Test Main Backend
 Open a new terminal and run:
 ```bash
 curl http://localhost:5000/health

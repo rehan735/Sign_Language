@@ -6,7 +6,7 @@
   "scripts": {
     "dev:backend": "npm run dev --prefix backend",
     "dev:frontend": "npm run dev --prefix frontend",
-    "dev:python": "cd backend/model && .\\venv\\Scripts\\python.exe fastapi_app.py",
+    "dev:python": "cd backend && .\\venv\\Scripts\\python.exe predict_server.py",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:python\"",
     "start": "npm run start --prefix backend",
     "test": "echo \"Error: no test specified\" && exit 1"
